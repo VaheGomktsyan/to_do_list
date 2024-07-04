@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import "./style.css";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { getTasks } from "../../features/task/taskApi";
+import { deleteTaskById, getTasks } from "../../features/task/taskApi";
 import { selectTask } from "../../features/task/taskSlice";
+import { Link } from "react-router-dom";
 
 export const Tasks: React.FC = (): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -13,28 +14,45 @@ export const Tasks: React.FC = (): JSX.Element => {
     }, []);
 
     return (
-        <div className="container">
-            <div className="">
-                {tasks?.map((elm) => {
-                    return (
-                        <div key={elm?.id} className="questions__items-item">
-                            <div className="quesitons__items-item__info">
-                                <div className="item__reviews">
-                                    <div>
-                                        <p className="p3-fz13">{elm.name}</p>
-                                    </div>
-                                    <div>
-                                        <p>{elm.description}</p>
-                                    </div>
-                                    <div>
-                                        <p>{elm.done}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
+        <div className="containerTask">
+            <h3>Tasks</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Done</th>
+                        <th>More</th>
+                        <th>Del</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tasks.map((elm) => (
+                        <tr key={elm.id}>
+                            <td>{elm.name}</td>
+                            <td>{elm.description}</td>
+                            <td>{elm.done}</td>
+                            <td>
+                                <Link to={"/singleTask/" + elm.id}>More</Link>
+                            </td>
+                            <td>
+                                <button
+                                    onClick={() =>
+                                        dispatch(deleteTaskById(elm.id)).then(
+                                            (res) => {
+                                                console.log(res);
+                                                dispatch(getTasks());
+                                            }
+                                        )
+                                    }
+                                >
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };

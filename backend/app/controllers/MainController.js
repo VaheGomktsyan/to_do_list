@@ -29,15 +29,15 @@ class MainController {
         if (error) {
             res.send(error.details[0].message);
         } else {
-            const create = await Tasks.create(req.body);
+            const create = await Tasks.create({...req.body, done:false});
             res.send(create);
         }
     }
     static async updateTask(req, res) {
         const { id } = req.params;
         const tasks = await Tasks.findByPk(id);
-        const { error, value } = updateSchema.validate(req.body);
-        if (error) {
+        const {name, description} = req.body
+        if (!name && !description) {
             res.send(error.details[0].message);
         } else {
             if (tasks) {

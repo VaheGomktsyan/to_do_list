@@ -1,0 +1,66 @@
+
+.containerTask {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .containerTask h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .containerTask table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .containerTask th, .containerTask td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .containerTask th {
+    background: #3498db;
+    color: #fff;
+  }
+  
+  
+  .containerTask button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    margin-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .containerTask button:hover {
+    background-color: #2980b9;
+  }
+  
+
+ .containerTask a {
+    color: #3498db; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+  }
+  
+  
+ .containerTask a:hover {
+    color: #2980b9; 
+  }
+
+
+  

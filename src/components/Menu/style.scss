@@ -1,0 +1,49 @@
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 80%; 
+    margin: 0 auto;
+}
+
+.menu-bar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.menu-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu-items {
+    list-style-type: none;
+    display: flex;
+}
+
+.menu-item {
+    margin-right: 20px;
+}
+
+.menu-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-item a:hover {
+    color: #3498db; 
+}
+
+

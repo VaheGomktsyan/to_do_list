@@ -16,14 +16,14 @@ export const getTaskById = createAsyncThunk(
 );
 
 export const createTask = createAsyncThunk("create task", 
-    async (obj:ITask) => {
+    async (obj:{ name: string, description:string }) => {
     const { data } = await axios.post("http://localhost:3001/tasks", obj);
     return data;
 });
 
 export const updateTaskById = createAsyncThunk(
     "update task",
-    async ({id, obj}:{id: number, obj:ITask}) => {
+    async ({id, obj}:{id: number, obj:any}) => {
         const { data } = await axios.patch("http://localhost:3001/tasks/" + id, obj);
         return data;
     }
